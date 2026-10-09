@@ -1,0 +1,391 @@
+/* 1. Global Reset & Box Sizing */
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+body {
+
+    background-color: #FDF5E6;
+
+    color: #3B2F2F;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    padding: 3% 2%;
+
+}
+
+
+
+/* 2. Container กำหนดความกว้างเป็น Percent */
+
+#recipe-container {
+
+    width: 90%;
+
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    background-color: #FFFFFF;
+
+    padding: 4%;
+
+    border: 3px solid #C0392B;  /* Pizza Sauce Red */
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 20px rgba(192, 57, 43, 0.12);
+
+}
+
+
+
+/* Header */
+
+#recipe-header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+#recipe-header h1 {
+
+    color: #A93226;
+
+    font-size: 26pt;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.subtitle {
+
+    color: #7B241C;
+
+    font-size: 11.5pt;
+
+    font-style: italic;
+
+}
+
+
+
+.divider {
+
+    height: 3px;
+
+    background-color: #F5B041;
+
+    border: none;
+
+    margin: 20px 0;
+
+}
+
+
+
+/* 3. Top Section: ใช้ Grid Display 2 คอลัมน์ (50% / 50%) */
+
+.top-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4%;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+
+.main-img-box {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    border: 2px solid #C0392B;
+
+}
+
+
+
+.hero-img {
+
+    width: 100%;
+
+    height: 520px;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.hero-img:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+
+.ingredients-box {
+
+    width: 100%;
+
+    background-color: #FEF9E7;
+
+    padding: 6%;
+
+    border: 2px dashed #E67E22;
+
+    border-radius: 8px;
+
+}
+
+
+
+.ingredients-box h3, #instructions-section h3 {
+
+    color: #A93226;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+.ingredients-box ul {
+
+    padding-left: 20px;
+
+    line-height: 1.6;
+
+    font-size: 10.5pt;
+
+}
+
+
+
+/* 4. Instructions: ใช้ Grid Display จัดการ์ดเป็น 2 คอลัมน์คู่กัน */
+
+.steps-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+
+/* ภายใน Step Card ใช้ Grid จัดวางรูปและคำอธิบาย */
+
+.step-card {
+
+    display: grid;
+
+    grid-template-columns: 35% 65%;
+
+    gap: 15px;
+
+    align-items: center;
+
+    padding: 12px;
+
+    background-color: #FAFAFA;
+
+    border: 1px solid #FAD7A0;
+
+    border-radius: 8px;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+}
+
+
+
+.step-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 16px rgba(230, 126, 34, 0.22);
+
+    border-color: #E67E22;
+
+    background-color: #FFFFFF;
+
+}
+
+
+
+.step-img-box {
+
+    width: 100%;
+
+    height: 105px;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    border: 1px solid #E67E22;
+
+}
+
+
+
+.step-img-box img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+
+.step-desc h4 {
+
+    color: #A93226;
+
+    margin-bottom: 5px;
+
+    font-size: 11pt;
+
+}
+
+
+
+.step-desc p {
+
+    line-height: 1.4;
+
+    font-size: 9.5pt;
+
+}
+
+
+
+/* 5. Responsive Design with Media Queries */
+
+/* สำหรับหน้าจอ Tablet (หน้าจอเล็กลงมา) */
+
+@media (max-width: 768px) {
+
+    #recipe-container {
+
+        width: 95%;
+
+        padding: 5%;
+
+    }
+
+
+
+    /* ปรับส่วนหัวด้านบนให้เป็น 1 คอลัมน์ */
+
+    .top-grid {
+
+        grid-template-columns: 100%;
+
+        gap: 20px;
+
+    }
+
+
+
+    /* ปรับการ์ดขั้นตอนให้เหลือ 1 คอลัมน์แนวตั้ง */
+
+    .steps-grid {
+
+        grid-template-columns: 100%;
+
+    }
+
+
+
+    .hero-img {
+
+        height: 240px;
+
+    }
+
+}
+
+
+
+/* สำหรับหน้าจอมือถือ (Mobile Screens) */
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding: 2% 1%;
+
+    }
+
+
+
+    #recipe-header h1 {
+
+        font-size: 18pt;
+
+    }
+
+
+
+    /* เปลี่ยนเลย์เอาต์ในการ์ดขั้นตอนเป็น 1 คอลัมน์ (รูปอยู่บน ข้อความอยู่ล่าง) */
+
+    .step-card {
+
+        grid-template-columns: 100%;
+
+        text-align: center;
+
+    }
+
+
+
+    .step-img-box {
+
+        height: 160px;
+
+    }
+
+}

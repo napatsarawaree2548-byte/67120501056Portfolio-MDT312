@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- ปุ่มย้อนกลับ -->
+    <div class="back-nav">
+        <a href="index.html" class="back-icon-btn" title="กลับหน้าแรก">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </a>
+    </div>
+
+    <main class="container">
+        <section class="content-box">
+            <h2>PROJECTS & WORKS</h2>
+            <p>A collection of academic projects, interactive media designs, and creative explorations.</p>
+
+            <!-- Category Filter Bar -->
+            <div class="filter-bar" style="margin-top: 1.5rem;">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="arduino">Hardware</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                <button class="filter-btn" data-filter="maya">MAYA 3D</button>
+            </div>
+
+            <div class="grid-cards" style="margin-top: 1.5rem;">
+                <!-- Project 1 -->
+                <div class="card" data-category="arduino">
+                    <img src="Images/G01BalanceBoard.jpg" alt="Balance Board Project" class="project-img">
+                    <div>
+                        <h3>Balance Board</h3>
+                        <p>An interactive balance training innovation that turns routine exercises into an engaging Endless Runner game experience.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">MPU6050</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card" data-category="web">
+                    <img src="Images/LuniraP.png" alt="Lunira Project" class="project-img">
+                    <div>
+                        <h3>Lunira Project</h3>
+                        <p>A pet adoption website designed in collaboration with animal welfare foundations across Thailand to help rescue pets find homes.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">Pet friendly</span>
+                        <span class="tag">Web Design</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="card" data-category="web">
+                    <img src="Images/KKK.jpg" alt="Kid Kon Click Project" class="project-img">
+                    <div>
+                        <h3>Kid Kon Click</h3>
+                        <p>An educational website designed to raise awareness and protect users against modern online scams and cyber threats.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">Education</span>
+                        <span class="tag">Web Design</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="card" data-category="maya">
+                    <img src="Images/3DMAYA.jpg" alt="3D Room Modeling" class="project-img">
+                    <div>
+                        <h3>3D Room Modeling</h3>
+                        <p>A 3D interior environment design project meticulously modeled and detailed using Autodesk Maya.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">MAYA 3D</span>
+                        <span class="tag">Room Modeling</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="card" data-category="maya">
+                    <img src="Images/Chucky01.jpg" alt="3D LEGO Modeling" class="project-img">
+                    <div>
+                        <h3>3D LEGO Modeling</h3>
+                        <p>A 3D character modeling project recreating a custom LEGO mini-figure style asset using Autodesk Maya.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">MAYA 3D</span>
+                        <span class="tag">LEGO Modeling</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="card" data-category="maya">
+                    <img src="Images/SDModel.jpg" alt="3D SD Model" class="project-img">
+                    <div>
+                        <h3>SD Modeling</h3>
+                        <p>A 3D character design project featuring a stylized Art Toy figure created and rendered in Autodesk Maya.</p>
+                    </div>
+                    <div class="tags" style="margin-top: 1rem;">
+                        <span class="tag">MAYA 3D</span>
+                        <span class="tag">SD Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Napatsarawaree Ratt. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Filter สำหรับระบบกรองหมวดหมู่ผลงาน -->
+    <script>
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.grid-cards .card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
